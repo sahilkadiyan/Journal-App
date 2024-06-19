@@ -28,6 +28,22 @@ public class JournalEntryController {
         journalEntries.put(myEntry.getId(), myEntry);
         return true;
     }
+    // to get the details accoroding to the specific ID
+    @GetMapping("id/{myId}")
+    public JournalEntry getJournalEntryById(@PathVariable Long myId){
+        return journalEntries.get(myId);
+    }
+
+    @DeleteMapping("id/{myId}")
+    public JournalEntry deleteEntryById(@PathVariable Long myId){
+        return journalEntries.remove(myId);
+    }
+    // uPdate req
+    @PutMapping("id/{id}")
+    public JournalEntry updateJournalById(@PathVariable Long id,@RequestBody JournalEntry myEntry){
+        return journalEntries.put(id,myEntry);
+    }
+
 
 
 }
