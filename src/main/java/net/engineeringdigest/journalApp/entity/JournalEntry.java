@@ -1,13 +1,34 @@
 package net.engineeringdigest.journalApp.entity;
 
-public class JournalEntry {
-    private long id;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-    public long getId() {
+import java.time.LocalDateTime;
+import java.util.Date;
+
+// We have to map all things
+
+// JournalEntry ka instance jo hoga wo ek document ke barabar hoga here document means row of a table
+
+@Document(collection = "journal_entries")
+public class JournalEntry {
+    // We have to take one primary key
+    @Id
+    private ObjectId id;
+
+    private String title;
+
+    private String content;
+
+    private LocalDateTime date;
+
+
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -27,7 +48,16 @@ public class JournalEntry {
         this.content = content;
     }
 
-    private String title;
-    private String content;
+
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+
 
 }
