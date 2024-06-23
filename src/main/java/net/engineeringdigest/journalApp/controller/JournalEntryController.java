@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+// @Autowired is used for dependency injection
+// Application context is a way to implement IOC container
 // it will contain special type of classes/ components
 @RestController
 @RequestMapping("/journal")
